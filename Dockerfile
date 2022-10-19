@@ -10,6 +10,6 @@ COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
 VOLUME ["/var/cache/client_temp","/var/cache/proxy_temp"]
-RUN chmod 777 /var/cache/nginx
+RUN chmod 777 -R /var/cache/nginx
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
